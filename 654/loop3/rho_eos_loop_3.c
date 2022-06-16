@@ -20,7 +20,7 @@ void rho_eos_loop_3(int IstrR, int IendR, double *  restrict z_w, double * restr
                                         double * restrict z_r_k, double * restrict z_r_k_1, double g, double * bvf)
 {
    double bulk_up, bulk_dn, den_up, den_dn, cff1, cff2;
-   for(int i = IstrR - 1; i < IendR; i++){
+   for(int i = 0; i < 128; i++){
         bulk_up = bulk0_k_1[i] - z_w[i] * (bulk1_k_1[i] - bulk2_k_1[i]) * z_w[i];
         bulk_dn = bulk0_k[i] - z_w[i] * (bulk1_k[i] - bulk2_k[i]) * z_w[i];
         cff1 = 1.0 / (bulk_up + 0.1 * z_w[i]);

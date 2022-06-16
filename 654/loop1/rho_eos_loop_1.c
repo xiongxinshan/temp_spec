@@ -7,7 +7,7 @@
 void rho_eos_loop_1(int IstrR, int  IendR, int ng, double * restrict den, double * restrict Hz,  double * restrict rhoS, double * restrict rhoA)
 {
     double cff1;
-    for(int i = IstrR - 1; i <= IendR; i++)
+    for(int i = 0; i <= 128; i++)
     {
         cff1=den[i] * Hz[i];
         rhoS[i] = 0.5 * cff1 * Hz[i];

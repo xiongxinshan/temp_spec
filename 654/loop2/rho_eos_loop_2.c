@@ -8,7 +8,7 @@
 void rho_eos_loop_2(int IstrR, int IendR, double *z_w_n ,  double* z_w_0, double cff2, double * rhoA, double * rhoS)
 {
     double cff1;
-    for(int i = IstrR - 1; i < IendR; i++)
+    for(int i = 0; i < 128; i++)
     {
         cff1 = 1.0 / (z_w_n[i] - z_w_0[i]);
         rhoA[i] = cff2 * cff1 * rhoA[i];
