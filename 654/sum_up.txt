@@ -13,3 +13,11 @@ step3d_uv	： step3d_uv.fppized.f90
 			1414
 			1428
 			1442
+
+rhs3d.fppized.f90
+			1442
+			1525
+			1555
+			1633
+			1674
+			1685
