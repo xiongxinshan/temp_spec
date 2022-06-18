@@ -6,7 +6,7 @@
 #include "u_4.h"
 #include "W.h"
 // ! __loop__ 1633
-void rhs3d_loop_5(double cff1, double cff2, double* u1, double * u2, double * u3, double*u4, double * W, double * FC)
+void rhs3d_loop_5(double cff1, double cff2, double* restrict u1, double * restrict u2, double * restrict u3, double*restrict u4, double *restrict W, double *restrict FC)
 {
     for(int i = 0; i < 128; i++)
     {

@@ -10,8 +10,8 @@
 #include "W_4.h"
 //  '__loop__ 1674'
 
-void rhs3d_loop_6(double cff1, double cff2, double * v_1, double * v_2, double * v_3, double  *v_4,\
-                                                            double * W_1, double * W_2, double * W_3, double * W_4, double * FC)
+void rhs3d_loop_6(double cff1, double cff2, double *restrict  v_1, double *restrict v_2, double *restrict v_3, double  *restrict v_4,\
+                                                            double *restrict W_1, double *restrict W_2, double *restrict W_3, double *restrict W_4, double *restrict FC)
 {
    for(int i = 0; i < 128; i++)
    {
