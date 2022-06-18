@@ -7,7 +7,7 @@
 #include "v_1.h"
 #include "v.h"
 
-void rhs3d_loop_1(int n, double *Hz, double * fomn, double * v, double * v_1, double * u, double * u_1, double * dndx, double * dmde, double * UFx, double * VFe)
+void rhs3d_loop_1(int n, double *restrict Hz, double * restrict fomn, double * restrict v, double *restrict v_1, double *restrict u, double * restrict u_1, double *restrict dndx, double * restrict dmde, double *restrict UFx, double *restrict VFe)
 {
    double cff;
    for(int i = 0; i < n; i++)
