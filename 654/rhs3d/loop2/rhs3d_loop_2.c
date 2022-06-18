@@ -8,8 +8,8 @@
 #include "uee.h"
 #include "uee_1.h"
 // PRINT *, '__loop__ 1525'
-void rhs3d_loop_2(double * u, double * u_1, double * Hvom, double * Hvom_1, double * uee, \
-                                            double * uee_1, double Gadv , double * Hvxx, double * Hvxx_1, double * UFe)
+void rhs3d_loop_2(double *restrict  u, double * restrict u_1, double * restrict Hvom, double * restrict Hvom_1, double *restrict uee, \
+                                            double *restrict uee_1, double Gadv , double *restrict Hvxx, double *restrict Hvxx_1, double *restrict UFe)
 {
     double cff, cff1, cff2;
     for(int i = 0; i < 128; i++)
