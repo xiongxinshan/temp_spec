@@ -9,7 +9,7 @@
 #include "v.h"
 // !  PRINT *, '__loop__ 1555'
 
-void rhs3d_loop_3(double * v, double * v_1, double * Huon, double * Huon_1, double * vxx, double * vxx_1, double * Huee, double * Huee_1, double * VFx, double Gadv)
+void rhs3d_loop_3(double * restrict v, double * restrict v_1, double * restrict Huon, double * restrict Huon_1, double * restrict vxx, double * restrict vxx_1, double * restrict Huee, double * restrict Huee_1, double * restrict VFx, double Gadv)
 {
    double cff1, cff2, cff;
    for(int i = 0; i < 128; i++)

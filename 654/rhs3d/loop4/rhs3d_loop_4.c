@@ -9,8 +9,8 @@
 #include "vee_1.h"
 // !  PRINT *, '__loop__ 1589'
 
-void rhs3d_loop_4(double * v, double * v_1, double * vee, double * vee_1, double Gadv, \
-                                            double * Hvom, double * Hvom_1, double * Hvee, double * Hvee_1, double * VFe)
+void rhs3d_loop_4(double * restrict v, double * restrict v_1, double *restrict  vee, double * restrict vee_1, double Gadv, \
+                                            double * restrict Hvom, double * restrict Hvom_1, double * restrict Hvee, double * restrict Hvee_1, double * restrict VFe)
 {
 /*
     DO i=Istr,Iend ! __loop__ 1589
