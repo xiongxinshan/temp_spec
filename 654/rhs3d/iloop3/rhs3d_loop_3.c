@@ -3,7 +3,7 @@
 #include "Huon.h"
 #include "v.h"
 #include "vxx.h"
-#define get(i, j) i + j*128
+#define get(i, j) i + j*129
 void rhs3d_loop_3(double * restrict v, double * restrict Huon, double * restrict vxx, double *restrict  Huee, double *restrict VFx, double Gadv)
 {
     /*
@@ -24,7 +24,7 @@ void rhs3d_loop_3(double * restrict v, double * restrict Huon, double * restrict
     
     */
    double cff1, cff2, cff;
-   for(int i = 128; i < 2709; i++)
+   for(int i = 129; i < 2709; i++)
    {
         cff1 = v[i] + v[i-1];
         cff2 = Huon[i] + Huon[get(i, -1)];
