@@ -14,8 +14,8 @@
 #include "u.h"
 #include "u_1.h"
 // ! __loop__ 1442
-void step3d_uv_loop_4(double * BC, double cff1, double * Hzk, double * Hzk_1, double dt, double * AK, double * oHz, double * oHz_1, \
-                                                                double * FC, double * CF, double * CF_1, double * u, double * DC_1, double *cff_, double * u_1, double * DC)
+void step3d_uv_loop_4(double * restrict BC, double cff1, double *restrict Hzk, double *restrict Hzk_1, double dt, double *restrict AK, double *restrict oHz, double *restrict oHz_1, \
+                                                                double *restrict FC, double *restrict CF, double *restrict CF_1, double *restrict u, double *restrict DC_1, double *restrict cff_, double *restrict u_1, double *restrict DC)
 {
 /*
     DO i=IstrU,Iend
