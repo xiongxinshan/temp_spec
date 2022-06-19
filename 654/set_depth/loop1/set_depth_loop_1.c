@@ -5,11 +5,12 @@
 #include "h.h"
 #include "z_w.h"
 #include "Zt_avg1.h"
-// __loop__ 1391
-void set_depth_loop_1(double cff1_w, double cff1_r, double cff_w, double cff_r, double *restrict z_r ,\
+//  __loop__ 1391
+/*void set_depth_loop_1(double cff1_w, double cff1_r, double cff_w, double cff_r, double *restrict z_r ,\
                                         double *restrict h, double *restrict Zt_avg1, double *restrict z_w, double *restrict z_w_1, double *restrict Hz)
 {
    double hwater, hinv, z_w0, z_r0;
+   
    for(int i = 0; i < 128; i++)
    {
        hwater = h[i];
@@ -20,15 +21,33 @@ void set_depth_loop_1(double cff1_w, double cff1_r, double cff_w, double cff_r, 
        z_r[i] = z_r0 + Zt_avg1[i] * (1.0 + z_r0 * hinv);
        Hz[i] = z_w_1[i] - z_w[i]; 
    }
+}*/
+#define ost  128 * k
+void set_depth_loop_1(double *restrict cff1_w, double *restrict cff1_r, double *restrict cff_w, double *restrict  cff_r, double *restrict z_r ,\
+                                        double *restrict h, double *restrict Zt_avg1, double *restrict z_w, double *restrict Hz)
+{
+   double hwater, hinv, z_w0, z_r0;
+   for (int k = 1; k < 11; k++)
+   for(int i = 0; i < 128; i++)
+   {
+       hwater = (h + ost)[i];
+       hinv = 1.0 / hwater;
+       z_w0 = cff_w[k] + cff1_w[k] * hwater;
+       (z_w + ost)[i] = z_w0 + (Zt_avg1 + ost)[i] * (1.0 + z_w0 * hinv);
+       z_r0 = cff_r[k] + cff1_r[k] * hwater;
+       (z_r + ost)[i] = z_r0 + (Zt_avg1 + ost)[i] * (1.0 + z_r0 * hinv);
+       (Hz + ost)[i] = (z_w + ost)[i] - (z_w + 128 * (k-1))[i]; 
+   }
+   
 }
 double z_r[1408];
 double Hz[1408];
-#define ost  128 * i
+
 void input_data_call()
 {
     for (int i = 1; i < 11; i++)
     {
-        set_depth_loop_1(cff1_w[i], cff1_r[i], cff_w[i], cff_r[i], z_r + ost, h + ost, Zt_avg1 + ost, z_w + ost, z_w + 128 * (i-1) + ost, Hz + ost );
+        set_depth_loop_1(cff1_w, cff1_r, cff_w, cff_r, z_r,h, Zt_avg1, z_w, Hz);
     }
     
 }
