@@ -26,7 +26,7 @@ void rhs3d_loop_4(double * restrict v,  double * restrict vee, double Gadv, \
           END DO
 */
     double cff, cff1;
-    for(int i = 0; i < 1920 - 128; i++)
+    for(int i = 0; i < 96768 - 128; i++)
     {
         cff1 = v[i] + v[i+128];
         if(cff1 > 0.0)
@@ -37,7 +37,7 @@ void rhs3d_loop_4(double * restrict v,  double * restrict vee, double Gadv, \
 
     }
 }
-double VFe[1920];
+double VFe[96768];
 void input_data_call()
 {
     rhs3d_loop_4(v, vee, Gadv, Hvom, Hvee, VFe);
