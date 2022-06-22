@@ -1,0 +1,1 @@
+int operational_cost = 0;
